@@ -1,0 +1,32 @@
+html, body {
+    height: 100%;
+    width: 100%;
+}
+
+#tableForm > *{
+    display: inline-grid;
+    grid-template-columns: 1fr;
+    grid-gap: 5px;
+
+}
+.itemForm {
+    border: black solid 1px;
+    width: 90%;
+}
+
+input {
+    width: 50px;
+}
+
+input[type=text] {
+    width: fit-content;
+}
+
+input[type=date] {
+    width: 100px;
+}
+
+
+#submit_btn{
+
+}

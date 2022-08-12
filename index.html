@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>PO Request</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+<body onload="fieldSetup()">
+<img src="Hickmans%20Logo.png" alt="Hickmans Logo">
+<h1>PO Request Form</h1>
+<form>
+
+    <label for="orderDate">Order Date</label>
+    <input type="date" id="orderDate" name="orderDate" required></input>
+
+    <br></br>
+    <label for="vendor">Vendor Name</label>
+    <select name="vendor" id="vendor" autocomplete="on" onchange='fetchFile("./csvs/GL_ASSIGNMENTS.csv", popGLA)'></select>
+
+    <br></br>
+    <label for="location">Location</label>
+    <select name="location" id="location"></select>
+
+    <br></br>
+    <label for="ShipMethod">Shipment Method</label>
+    <select name="shipMethod" id="ShipMethod">Shipping Method</select>
+
+    <br></br>
+    <label for="ReceiptDate">Expected Receipt Date</label>
+    <input name="receiptDate" type="date" id="ReceiptDate" required></input>
+
+    <br></br>
+    <label for="RefNum">Ref Number (if Applicable)</label>
+    <input name="refNum" type="text" id="RefNum"></input>
+
+    <br></br>
+    <label for="jobNum">Job Number</label>
+    <input name="jobNum" type="text" id="jobNum" placeholder="JOB0001"></input>
+
+    <br></br>
+    <label for="jobTaskNum">Job Task Number</label>
+    <input name="jobTaskNum" type="text" id="jobTaskNum" placeholder="006-CONCRETE"></input>
+
+
+<br></br>
+    <div id="itemForms">
+    <fieldset class="itemForm" id="tableForm">
+
+        <label for="GLAccount">GL Account:</label>
+        <select name="glAccount" class="GLAccount" id="GLAccount">
+            <option id="none">NONE</option>
+        </select>
+
+        <label for="CostCenter">Cost Center:</label>
+        <select name="costCenter" id="CostCenter"></select>
+
+        <label for="Dept">Dept:</label>
+        <select name="dept" id="Dept"></select>
+
+        <label for="ItemNo">Item #:</label>
+        <input name="itemNo" id="ItemNo"></input>
+
+        <label for="Quantity">Quantity:</label>
+        <input name="quantity" type="number" id="Quantity" min="0" required></input>
+
+        <label for="Description">Description:</label>
+        <input name="description" id="Description"></input>
+
+        <label for="UnitPrice">Unit Price:</label>
+        <input name="unitPrice" type="number" step="0.0001" id="UnitPrice" min="0" required></input>
+
+        <label for="ExtendedPrice">Extended Price:</label>
+        <input name="extPrice" type="number" step="0.01" id="ExtendedPrice" min="0" required></input>
+
+    </fieldset>
+    </div>
+    <button type="button" onclick="cloneItemTbl()">New Row</button>
+    <button id="submit_btn" type="submit" formaction="http://localhost:3000/formSubmit" formmethod="post">Submit</button>
+</form>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="script.js"></script>
+</body>
+
+</html>
